@@ -17,7 +17,11 @@ const App: FC = () => {
         <FormComponent onSubmit={addTask} />
       </div>
       <div>
-        <TableComponent tasks={tasks} onDelete={deleteTask} />
+        <TableComponent
+          tasks={tasks}
+          onDelete={deleteTask}
+          onClickColumn={checkTask}
+        />
       </div>
     </>
   );
