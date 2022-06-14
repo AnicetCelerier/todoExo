@@ -8,6 +8,8 @@ type TableComponentProps = {
 const TableComponent = (props: TableComponentProps) => {
   const { tasks, onDelete } = props;
 
+
+
   return (
     <ul>
       {tasks.map((task: TaskType, i: number) => {
@@ -16,7 +18,7 @@ const TableComponent = (props: TableComponentProps) => {
             {task.content}{" "}
             <button
               onClick={() => {
-                onDelete(task);
+                onDelete(task)
               }}
             >
               X

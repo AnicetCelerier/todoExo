@@ -22,6 +22,7 @@ const FormComponent = (props: FormComponentProps) => {
         checked: false,
       };
       onSubmit(newTask);
+      setTaskText("")
     }
   };
 

@@ -11,17 +11,24 @@ const App: FC = () => {
 
     setTasks((_tasks: TaskType[]) => {
       _tasks = _tasks.concat(t);
+      // console.log(_tasks, '_tasks')
       return Array.from(_tasks);
     });
   };
-
   const deleteTask = (t: TaskType) => {
     // _tasks.filter((_t: TaskType) => {
     //   if (_t.content === t.content) return true;
     //   return false;
     // });
-    // _tasks.filter((_t: TaskType) => _t.content === t.content)
+    setTasks((_tasks: TaskType[]) => {
+      const tt = tasks.filter((_t: TaskType) => _t.content !== t.content);
+      return Array.from(tt)
+    });
   };
+
+  // _tasks.filter((_t: TaskType) => _t.content === t.content)
+
+  // console.log(addTask, 'addTask')
 
   return (
     <>
