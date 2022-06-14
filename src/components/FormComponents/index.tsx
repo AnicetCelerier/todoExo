@@ -7,11 +7,6 @@ type FormComponentProps = {
 
 const FormComponent = (props: FormComponentProps) => {
   const [taskText, setTaskText] = useState<string>("");
-  // const [task, setTask] = useState<TaskType>({
-  //   content: taskText,
-  //   checked: false
-  // })
-
   const { onSubmit } = props;
 
   const handleSubmit = (e: FormEvent<HTMLButtonElement>): void => {
@@ -22,7 +17,7 @@ const FormComponent = (props: FormComponentProps) => {
         checked: false,
       };
       onSubmit(newTask);
-      setTaskText("")
+      setTaskText("");
     }
   };
 
@@ -36,15 +31,14 @@ const FormComponent = (props: FormComponentProps) => {
             value={taskText}
             required
             onChange={(e) => {
-              if (e.target.value) {
-                setTaskText(e.target.value);
-              }
+              setTaskText(e.target.value);
             }}
           />
         </label>
-        <button type="submit" onClick={(e) => handleSubmit(e)}>Submit</button>
+        <button type="submit" onClick={(e) => handleSubmit(e)}>
+          Submit
+        </button>
       </div>
-      <div>{/* <TableComponent taskText={taskText}/> */}</div>
     </form>
   );
 };
