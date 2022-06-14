@@ -1,25 +1,10 @@
-import { useState, FormEvent } from "react";
 import { TaskType } from "../../types";
+import useFormComponent from "../../hooks/hooks/useFormComponents";
 
-type FormComponentProps = {
-  onSubmit: (task: TaskType) => void;
-};
 
-const FormComponent = (props: FormComponentProps) => {
-  const [taskText, setTaskText] = useState<string>("");
-  const { onSubmit } = props;
 
-  const handleSubmit = (e: FormEvent<HTMLButtonElement>): void => {
-    e.preventDefault();
-    if (taskText.trim()) {
-      const newTask: TaskType = {
-        content: taskText,
-        checked: false,
-      };
-      onSubmit(newTask);
-      setTaskText("");
-    }
-  };
+const FormComponent = () => {
+  const { handleSubmit, setTaskText, taskText } = useFormComponent();
 
   return (
     <form>
