@@ -1,9 +1,7 @@
 import { useState, useEffect, FormEvent } from "react";
+import { FormComponentProps } from "../../../components/FormComponents";
 import { TaskType } from "../../../types";
 
-type FormComponentProps = {
-  onSubmit: (task: TaskType) => void;
-};
 
 const useFormComponent = (props: FormComponentProps) => {
   const [taskText, setTaskText] = useState<string>("");

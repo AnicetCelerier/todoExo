@@ -1,0 +1,7 @@
+.no {
+    text-decoration-line: none;
+}
+
+.yes {
+    text-decoration-line: line-through;
+}

@@ -25,19 +25,24 @@ const useApp = () => {
   };
 
   const checkTask = (t: TaskType) => {
-    // setTasks((_tasks: TaskType[]) => {
-    //   const tt = _tasks.find((_t: TaskType) => _t.content === t.content);
-    //   if (tt) {
-    //   }
-    //   // return Array.from(_tasks);
-    // });
+    setTasks((_tasks: TaskType[]) => {
+      const tt = _tasks.find((_t: TaskType) => _t.content === t.content);
+      console.log(tt, 'tt')
+      if (tt?.checked === false) {
+        tt.checked = true
+      }
+      return Array.from(_tasks);
+    });
   };
 
-  const saveTasks = () => {};
+  // const saveTasks = (t: TaskType) => {
+  //   const test =  _tasks.filter((_t: TaskType) => _t.content === t.content)
+  //   console.log(test)
 
-  // _tasks.filter((_t: TaskType) => _t.content === t.content)
+  // };
 
-  // console.log(addTask, 'addTask')
+
+
 
   useEffect(() => {
     console.log("use effect useApp called");

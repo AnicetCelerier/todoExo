@@ -1,10 +1,12 @@
 import { TaskType } from "../../types";
 import useFormComponent from "../../hooks/hooks/useFormComponents";
 
+export type FormComponentProps = {
+  onSubmit: (task: TaskType) => void;
+};
 
-
-const FormComponent = () => {
-  const { handleSubmit, setTaskText, taskText } = useFormComponent();
+const FormComponent = (props: FormComponentProps) => {
+  const { handleSubmit, setTaskText, taskText } = useFormComponent(props);
 
   return (
     <form>
