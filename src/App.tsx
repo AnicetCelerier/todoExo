@@ -1,11 +1,12 @@
 import React, { FC } from "react";
 import TableComponent from "./components/TableComponents";
 import FormComponent from "./components/FormComponents";
-import useApp from "./hooks/hooks/useApp";
+import useApp from "./hooks/useApp";
 import "./App.css";
 
 const App: FC = () => {
-  const { tasks, addTask, deleteTask, checkTask } = useApp();
+  const { tasks, addTask, deleteTask, toggleTask } = useApp();
+  // console.log("🚀 ~ file: App.tsx ~ line 9 ~ tasks", tasks);
 
   return (
     <>
@@ -19,7 +20,7 @@ const App: FC = () => {
         <TableComponent
           tasks={tasks}
           onDelete={deleteTask}
-          onClickColumn={checkTask}
+          onClickColumn={toggleTask}
         />
       </div>
     </>

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { TaskType } from "../../../types";
+import { TaskType } from "../../types";
 
 const useApp = () => {
   const [tasks, setTasks] = useState<TaskType[]>([]);
@@ -24,13 +24,24 @@ const useApp = () => {
     });
   };
 
-  const checkTask = (t: TaskType) => {
+  const toggleTask = (t: TaskType) => {
     setTasks((_tasks: TaskType[]) => {
+      console.log("toggleTask");
       const tt = _tasks.find((_t: TaskType) => _t.content === t.content);
-      console.log(tt, 'tt')
-      if (tt?.checked === false) {
-        tt.checked = true
+      if (tt === undefined || typeof tt === "undefined") {
+        return _tasks;
       }
+
+      if (tt.checked === true) {
+        // console.log("true");
+        // tt.checked = false;
+      } else {
+        // console.log("false");
+        tt.checked = true;
+      }
+
+      // console.log(tt, "i'm here");
+
       return Array.from(_tasks);
     });
   };
@@ -40,9 +51,6 @@ const useApp = () => {
   //   console.log(test)
 
   // };
-
-
-
 
   useEffect(() => {
     console.log("use effect useApp called");
@@ -65,7 +73,7 @@ const useApp = () => {
     tasks,
     addTask,
     deleteTask,
-    checkTask,
+    toggleTask,
   };
 };
 

@@ -1,7 +1,6 @@
 import { useState, useEffect, FormEvent } from "react";
-import { FormComponentProps } from "../../../components/FormComponents";
-import { TaskType } from "../../../types";
-
+import { FormComponentProps } from "../../components/FormComponents";
+import { TaskType } from "../../types";
 
 const useFormComponent = (props: FormComponentProps) => {
   const [taskText, setTaskText] = useState<string>("");

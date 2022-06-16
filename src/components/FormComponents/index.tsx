@@ -1,5 +1,6 @@
+import { Button } from "semantic-ui-react";
 import { TaskType } from "../../types";
-import useFormComponent from "../../hooks/hooks/useFormComponents";
+import useFormComponent from "../../hooks/useFormComponents";
 
 export type FormComponentProps = {
   onSubmit: (task: TaskType) => void;
@@ -22,9 +23,9 @@ const FormComponent = (props: FormComponentProps) => {
             }}
           />
         </label>
-        <button type="submit" onClick={(e) => handleSubmit(e)}>
+        <Button type="submit" onClick={(e) => handleSubmit(e)}>
           Submit
-        </button>
+        </Button>
       </div>
     </form>
   );
