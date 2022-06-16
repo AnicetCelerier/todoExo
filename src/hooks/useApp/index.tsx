@@ -33,6 +33,18 @@ const useApp = () => {
       ttt.checked = false;
     }
     setTasks(Array.from(tasks));
+    /* 
+    setTasks(_tasks => {
+      const ttt = _tasks.find((_t: TaskType) => _t.content === t.content);
+      if (typeof ttt === "undefined") return _tasks;
+      if (ttt.checked === false) {
+        ttt.checked = true;
+      } else {
+        ttt.checked = false;
+      }
+      setTasks(Array.from(_tasks));
+    });
+    */
   };
 
   // const saveTasks = (t: TaskType) => {
