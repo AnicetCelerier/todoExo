@@ -25,25 +25,14 @@ const useApp = () => {
   };
 
   const toggleTask = (t: TaskType) => {
-    setTasks((_tasks: TaskType[]) => {
-      console.log("toggleTask");
-      const tt = _tasks.find((_t: TaskType) => _t.content === t.content);
-      if (tt === undefined || typeof tt === "undefined") {
-        return _tasks;
-      }
-
-      if (tt.checked === true) {
-        // console.log("true");
-        // tt.checked = false;
-      } else {
-        // console.log("false");
-        tt.checked = true;
-      }
-
-      // console.log(tt, "i'm here");
-
-      return Array.from(_tasks);
-    });
+    const ttt = tasks.find((_t: TaskType) => _t.content === t.content);
+    if (typeof ttt === "undefined") return;
+    if (ttt.checked === false) {
+      ttt.checked = true;
+    } else {
+      ttt.checked = false;
+    }
+    setTasks(Array.from(tasks));
   };
 
   // const saveTasks = (t: TaskType) => {

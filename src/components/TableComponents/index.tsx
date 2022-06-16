@@ -1,7 +1,7 @@
 import { ok } from "assert";
 import { TaskType } from "../../types";
 import { useState } from "react";
-import "./style.css"
+import "./style.css";
 
 type TableComponentProps = {
   tasks: TaskType[];
@@ -22,7 +22,16 @@ const TableComponent = (props: TableComponentProps) => {
       {tasks.map((task: TaskType, i: number) => {
         return (
           <li key={`table-component-${i}`}>
-            <span onClick={() => onClickColumn(task)} style={(task.checked === true) ? {color : "green"} :  {color : "none" } }>{task.content}</span>{" "}
+            <span
+              onClick={() => {
+                onClickColumn(task);
+              }}
+              style={
+                task.checked === true ? { color: "green" } : { color: "black" }
+              }
+            >
+              {task.content}
+            </span>{" "}
             <button
               onClick={() => {
                 onDelete(task);
