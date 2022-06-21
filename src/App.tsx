@@ -1,7 +1,8 @@
 import React, { FC } from "react";
-import TableComponent from "./components/TableComponents";
-import FormComponent from "./components/FormComponents";
-import useApp from "./hooks/useApp";
+
+import { FormComponent, TableComponent } from "./components";
+import { useApp, useFormComponents } from "./hooks";
+
 import "./App.css";
 import { Grid, Segment, Header } from "semantic-ui-react";
 

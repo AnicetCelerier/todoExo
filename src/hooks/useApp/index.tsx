@@ -9,9 +9,11 @@ const useApp = () => {
 
     setTasks((_tasks: TaskType[]) => {
       _tasks = _tasks.concat(t);
+      localStorage.setItem("tasks", JSON.stringify(Array.from(_tasks)));
       return Array.from(_tasks);
     });
   };
+
   const deleteTask = (t: TaskType) => {
     // _tasks.filter((_t: TaskType) => {
     //   if (_t.content === t.content) return true;
@@ -19,6 +21,7 @@ const useApp = () => {
     // });
     setTasks((_tasks: TaskType[]) => {
       const tt = _tasks.filter((_t: TaskType) => _t.content !== t.content);
+      localStorage.setItem("tasks", JSON.stringify(Array.from(_tasks)));
       return Array.from(tt);
     });
   };
@@ -31,6 +34,7 @@ const useApp = () => {
     } else {
       ttt.checked = false;
     }
+    localStorage.setItem("tasks", JSON.stringify(Array.from(tasks)));
     setTasks(Array.from(tasks));
   };
 
@@ -44,6 +48,7 @@ const useApp = () => {
     console.log(c, "content");
     if (typeof ttt === "undefined") return;
     ttt.content = c;
+    localStorage.setItem("tasks", JSON.stringify(Array.from(tasks)));
     setTasks(Array.from(tasks));
   };
   /* 
@@ -69,12 +74,12 @@ const useApp = () => {
     }
   }, []);
 
-  useEffect(() => {
-    console.log("use effect tasks changed", tasks);
-    if (tasks.length !== 0) {
-      localStorage.setItem("tasks", JSON.stringify(tasks));
-    }
-  }, [tasks]);
+  // useEffect(() => {
+  //   console.log("use effect tasks changed", tasks);
+  //   if (tasks.length !== 0) {
+  //     localStorage.setItem("tasks", JSON.stringify(tasks));
+  //   }
+  // }, [tasks]);
 
   return {
     tasks,
