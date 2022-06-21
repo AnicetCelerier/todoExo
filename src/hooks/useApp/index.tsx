@@ -9,7 +9,6 @@ const useApp = () => {
 
     setTasks((_tasks: TaskType[]) => {
       _tasks = _tasks.concat(t);
-      // console.log(_tasks, '_tasks')
       return Array.from(_tasks);
     });
   };
@@ -33,7 +32,21 @@ const useApp = () => {
       ttt.checked = false;
     }
     setTasks(Array.from(tasks));
-    /* 
+  };
+
+  const updateTask = (t: TaskType, c: string) => {
+    const ttt = tasks.find((_t: TaskType) => _t.content === t.content);
+    console.log(
+      "🚀 ~ file: index.tsx ~ line 42 ~ updateTask ~ ttt",
+      ttt?.content
+    );
+    console.log(tasks, "tasks");
+    console.log(c, "content");
+    if (typeof ttt === "undefined") return;
+    ttt.content = c;
+    setTasks(Array.from(tasks));
+  };
+  /* 
     setTasks(_tasks => {
       const ttt = _tasks.find((_t: TaskType) => _t.content === t.content);
       if (typeof ttt === "undefined") return _tasks;
@@ -45,13 +58,6 @@ const useApp = () => {
       setTasks(Array.from(_tasks));
     });
     */
-  };
-
-  // const saveTasks = (t: TaskType) => {
-  //   const test =  _tasks.filter((_t: TaskType) => _t.content === t.content)
-  //   console.log(test)
-
-  // };
 
   useEffect(() => {
     console.log("use effect useApp called");
@@ -63,18 +69,19 @@ const useApp = () => {
     }
   }, []);
 
-  //   useEffect(() => {
-  //     console.log("use effect tasks changed", tasks);
-  //     if (tasks.length !== 0) {
-  //        localStorage.setItem("tasks", JSON.stringify(tasks));
-  //      }
-  //   }, [tasks]);
+  useEffect(() => {
+    console.log("use effect tasks changed", tasks);
+    if (tasks.length !== 0) {
+      localStorage.setItem("tasks", JSON.stringify(tasks));
+    }
+  }, [tasks]);
 
   return {
     tasks,
     addTask,
     deleteTask,
     toggleTask,
+    updateTask,
   };
 };
 

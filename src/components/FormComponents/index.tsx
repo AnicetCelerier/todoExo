@@ -1,4 +1,4 @@
-import { Button } from "semantic-ui-react";
+import { Button, Form } from "semantic-ui-react";
 import { TaskType } from "../../types";
 import useFormComponent from "../../hooks/useFormComponents";
 
@@ -10,10 +10,10 @@ const FormComponent = (props: FormComponentProps) => {
   const { handleSubmit, setTaskText, taskText } = useFormComponent(props);
 
   return (
-    <form>
-      <div>
+    <Form>
+      <Form.Field>
         <label>
-          Entrez le tâche à faire:
+          Entrez le tâche à faire :{"  "}
           <input
             type="string"
             value={taskText}
@@ -23,11 +23,11 @@ const FormComponent = (props: FormComponentProps) => {
             }}
           />
         </label>
-        <Button type="submit" onClick={(e) => handleSubmit(e)}>
-          Submit
-        </Button>
-      </div>
-    </form>
+      </Form.Field>
+      <Button type="submit" onClick={(e) => handleSubmit(e)}>
+        Submit
+      </Button>
+    </Form>
   );
 };
 
